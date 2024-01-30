@@ -18,22 +18,21 @@ const Shop = () => {
     }
 
     return (
-        <div className='shop-container'>
-            <div className="products-container">
-                 {
-                    products.map(product=> <Product
-                        key={product.id}
-                        product={product}
-                        handleAddToCart ={handleAddToCart}
-                    ></Product>)
-                 }
-            </div>
-            <div className="card-container">
-                <h4>Order Summary</h4>
-                <p>Selected Items : {cart.length}</p>
-            </div>
-            
+      <div className="grid grid-cols-5">
+        <div className=" col-span-4 grid lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-2 gap-5 mx-auto">
+          {products.map((product) => (
+            <Product
+              key={product.id}
+              product={product}
+              handleAddToCart={handleAddToCart}
+            ></Product>
+          ))}
         </div>
+        <div className="col-span-1 bg-[#FFE0B3] text-center pt-5">
+          <h4 className='text-3xl font-bold'>Order Summary</h4>
+          <p className='text-xl'>Selected Items : {cart.length}</p>
+        </div>
+      </div>
     );
 };
 
